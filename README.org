@@ -1,0 +1,5 @@
+* MEI Transcriber
+Online MEI Editor to Collaboratively Transcribe PDF music scores
+** Features
+* License
+Information about the license is found in the file [[file:LICENSE][LICENSE]].
