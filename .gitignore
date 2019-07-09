@@ -6,3 +6,10 @@
 .AppleDouble
 .LSOverride
 .localized
+
+#---------------------------------------#
+# Project Ignores                       #
+#---------------------------------------#
+
+/server/__pycache__/
+/.idea/
