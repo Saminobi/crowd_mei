@@ -11,3 +11,5 @@
 # Project Ignores                       #
 #---------------------------------------#
 
+/server/__pycache__/
+/.idea/

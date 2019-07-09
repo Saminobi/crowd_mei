@@ -1,0 +1,17 @@
+img {
+    width: 42%;
+    height: 42%;
+    float: right;
+}
+#app {
+    height: auto;
+    width: 56%;
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    float: left;
+}
+#button-container {
+    margin-top: 50px;
+    float: right;
+}
