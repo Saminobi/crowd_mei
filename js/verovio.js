@@ -1,7 +1,7 @@
 import 'https://www.verovio.org/javascript/app/verovio-app.js';
 import 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
 
-var options = {
+const options = {
     defaultView: 'editor', // default is 'responsive', alternative is 'document'
     defaultZoom: 3, // 0-7, default is 4
     enableResponsive: false, // default is true
