@@ -12,8 +12,8 @@ cors = CORS(app, resources={r"/": {"origins": "http://127.0.0.1:8000"}})
 
 @app.route('/', methods=['GET', 'POST'])
 def store_mei_changes():
-    print(request.get_data())
-
+    print(request.get_data().decode('utf-8'))
+    return 'Backend Server. Work in Progress...'
 
 if __name__ == '__main__':
     app.run()
