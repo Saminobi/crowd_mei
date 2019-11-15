@@ -6,59 +6,67 @@ from flask_cors import CORS
 from pathlib import Path
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename, redirect
+from shutil import copyfile
 
 connection = MongoClient()
 db = connection.crowd_mei
 
+composer_col = db["composers"]
+composition_col = db["compositions"]
+modality_col = db["modalities"]
 file_col = db["files"]
 page_col = db["pages"]
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='static')
 app.secret_key = "secret key"
 
-UPLOAD_FOLDER = Path('data/pdf').absolute()
+UPLOAD_FOLDER = Path('static/data/pdf').absolute()
 ALLOWED_EXTENSIONS = {'pdf'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
-cors = CORS(app, resources={r"/": {"origins": "http://127.0.0.1:5000"}})
-
-if db.pages.count() != 0:
-    unchecked = db.pages.find({"is_checked": False})
-    record = unchecked.next()["jpg_path"]
-
-    with open('templates/index.html', 'r') as file:
-        data = file.readlines()
-
-    data[10] = "<img src= ../" + record + "/>\n"
-
-    # and write everything back
-    with open('templates/index.html', 'w') as file:
-        file.writelines(data)
-
+CORS(app)
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def add_page(filename):
-    filepath = "data/pdf/" + filename
-    pages = convert_from_path(filepath, 500)
+def add_composition(composer_name, composition_name, instrument):
+    path = "static/data/composers/" + composer_name + "/" + composition_name + "/" + instrument
+    if not os.path.exists(path):
+        os.makedirs(path)
+        os.makedirs(path + "/pdf")
+        os.makedirs(path + "/jpg")
+        os.makedirs(path + "/png")
+        os.makedirs(path + "/mei")
+
+    composition_col.insert_one({"composition_name": composition_name, "composer_name": composer_name, "instrument": instrument, "file_path": "data/pdf"})
+    # Ludwig_van_Beethoven/Andante_F_Major/piano/pdf/30912749289/page1.pdf
+    add_page(composition_name+".pdf", path)
+
+def add_page(filename, path):
+    file_path = "static/data/pdf/"+filename
+    empty_path = "static/data/mei/empty.mei"
+    pages = convert_from_path(file_path, 500)
     length = len(pages)
     file_col.insert_one(
-        {"file_path": filepath,
+        {"file_path": file_path,
          "no_pages": length})
-    fileid = db.files.find({"file_path": filepath}).next()["_id"]
+    fileid = db.files.find({"file_path": file_path}).next()["_id"]
     count = 1
     for page in pages:
-        jpg_path = "data/jpg/" + filename + "_" + str(count) + ".jpg"
+        pdf_path = path + "/pdf/page" + str(count) + ".pdf"
+        jpg_path = path + "/jpg/page" + str(count) + ".jpg"
+        png_path = path + "/png/page" + str(count) + ".png"
+        mei_path = path + "/mei/page" + str(count) + ".mei"
+        copyfile(empty_path, mei_path)
+        page.save(pdf_path)
         page.save(jpg_path, 'JPEG')
         page_col.insert_one(
-            {"file_id": fileid, "page_id": count, "png_path": "",
-             "jpg_path": jpg_path,
-             "mei_path": "", "is_checked": False})
+            {"file_id": fileid, "page_id": count, "pdf_path": pdf_path, "png_path": png_path,
+             "jpg_path": jpg_path, "mei_path": mei_path, "is_checked": False})
         count += 1
 
 
@@ -69,22 +77,44 @@ def upload_file():
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
+        composer_name = request.form["composer name"]
+        composition_name = request.form["composition name"]
+        instrument = request.form["instrument"]
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            filename = secure_filename(composition_name+".pdf")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            add_page(filename)
+            composer_col.insert_one({"composer_name": composer_name})
+            print("calling add composition")
+            add_composition(composer_name, composition_name, instrument)
     return render_template('index.html')
 
-# @app.route('/', methods=['GET', 'POST'])
-# def store_mei_changes():
-#     if request.method == "GET":
-#         name = request.form["name"]
-#         return name + " Hello"
-#     return "not working"
 
+@app.route('/mei_page.html')
+def load_mei_page():
+    if db.pages.count() != 0:
+        unchecked = db.pages.find({"is_checked": False})
+        record = unchecked.next()["jpg_path"]
+
+        with open('templates/mei_page.html', 'r') as file:
+            data = file.readlines()
+
+        new_record = record[6:]
+        data[10] = "<img src=\"" + new_record + "\">\n"
+
+        # and write everything back
+        with open('templates/mei_page.html', 'w') as file:
+            file.writelines(data)
+    return render_template('mei_page.html')
+
+
+@app.route('/store', methods=['GET', 'POST'])
+def store_mei_changes():
+    print("store_mei_changes")
+    print(request.get_data().decode('utf-8'))
+    return 'hello'
 
 if __name__ == '__main__':
     app.run()

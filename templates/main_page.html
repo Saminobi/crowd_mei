@@ -1,0 +1,20 @@
+<link href="css/new.css" rel="stylesheet"/>
+
+<div id="upload-box">
+  <div class="left">
+    <h1>Upload File</h1>
+    <form action="{{ url_for('sendsms') }}" method="post">
+      <input type="text" name="composer name" placeholder="Composer Name" />
+      <input type="text" name="composition name" placeholder="Composition Name" />
+      <input type="text" name="instrument" placeholder="Instrument" />
+      <input type="file" name="file">
+      <input type="submit" name="button" class="btn btn-success" value="Upload File">
+    </form>
+  </div>
+
+  <div class="right">
+    <button class="go_mei">Get a new MEI</button>
+  </div>
+  <div class="or">OR</div>
+</div>
+

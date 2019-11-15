@@ -12,7 +12,7 @@ const options = {
 const app = new Verovio.App(document.getElementById("app"), options);
 
 // Load a file (MEI or MusicXML)
-fetch("../data/mei/faulty_beethoven.mei")
+fetch("data/mei/measure_annotations.mei")
 .then(function(response) {
     return response.text();
 })
