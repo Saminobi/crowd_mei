@@ -1,10 +1,14 @@
 * MEI Transcriber
 Online MEI Editor to Collaboratively Transcribe PDF music scores
 ** How to run
-1. Run =python3 -m http.server 8000= in the directory of =index.html= file.
-2. Change directory to =server/=.
-3. Run =export FLASK_APP=store_mei.py= and then =python3 -m flask run=.
-4. Access the MEI Transcriber through =127.0.0.1:8000=.
+***Windows
+1. Change directory to the directory of =app.py= file.
+2. Run =set FLASK_APP=app.py= and then =flask run=.
+3. Access the MEI Transcriber through =127.0.0.1:5000=.
+***Mac
+1. Change directory to the directory of =app.py= file.
+2. Run =export FLASK_APP=app.py= and then =flask run=.
+3. Access the MEI Transcriber through =127.0.0.1:5000=.
 ** Features
 + App loads an intro page which has 'Upload file' and 'Get new MEI' options
 + User can upload a new music score using 'Upload file' option
