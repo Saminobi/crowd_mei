@@ -6,7 +6,11 @@ Online MEI Editor to Collaboratively Transcribe PDF music scores
 3. Run =export FLASK_APP=store_mei.py= and then =python3 -m flask run=.
 4. Access the MEI Transcriber through =127.0.0.1:8000=.
 ** Features
-+ Verovio app loads the MEI file which contains a skeleton with empty measures, corresponding to the image file of the music score to the right.
++ App loads an intro page which has 'Upload file' and 'Get new MEI' options
++ User can upload a new music score using 'Upload file' option
++ When a music score is uploaded, its each page is converted to pdf, png, jpg formats and stored in database
++ User can get a new random music score page using 'Get new MEI option'. When user choose this option, the main application page is loaded.
++ In main application page, verovio app loads the MEI file which contains a skeleton with empty measures, corresponding to a random image file of the music score to the right.
 + 'Save' button sends a request to the server with the latest text in the Verovio text editor area.
 * License
 Information about the license is found in the file [[file:LICENSE][LICENSE]].
