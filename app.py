@@ -1,19 +1,20 @@
 import os
 
 from pdf2image import convert_from_path
-from flask import Flask, request, render_template, flash, url_for
+from flask import Flask, request, render_template, flash
 from flask_cors import CORS
 from pathlib import Path
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename, redirect
 from shutil import copyfile
 
+# connect to the database "crowd_mei"
 connection = MongoClient()
 db = connection.crowd_mei
 
+# create the collections "compositions" and "scores"
 composition_col = db["compositions"]
 score_col = db["scores"]
-
 
 app = Flask(__name__, static_url_path='', static_folder='static')
 app.secret_key = "secret key"
@@ -27,13 +28,16 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
 
+# method to find the allowed files
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+# method to add compositions to the right directories
 def add_composition(composer_name, composition_name, instrument):
     path = "static/data/composers/" + composer_name + "/" + composition_name + "/" + instrument
+    # create the directories
     if not os.path.exists(path):
         os.makedirs(path)
         os.makedirs(path + "/pdf")
@@ -41,10 +45,14 @@ def add_composition(composer_name, composition_name, instrument):
         os.makedirs(path + "/png")
         os.makedirs(path + "/mei")
 
+    # add records to "composition" collection in the database
     composition_col.insert_one({"composition_name": composition_name, "composer_name": composer_name, "instrument": instrument})
     add_page(composition_name+".pdf", path)
 
 
+# for each file create the pages
+# convert them to the "pdf", "jpg", "png" and "mei formats"
+# and then add to the database
 def add_page(filename, path):
     file_path = "static/data/pdf/"+filename
     empty_path = "static/data/mei/empty.mei"
@@ -63,10 +71,10 @@ def add_page(filename, path):
         page.save(jpg_path, 'JPEG')
         page_list.append({"pdf_path": pdf_path, "png_path": png_path,"jpg_path": jpg_path, "mei_path": mei_path, "is_checked": False})
         count += 1
-    doc_body = {"user_added": "", "file_path": file_path, "no_pages": length, "pages": pagelist}
+    doc_body = {"user_added": "", "file_path": file_path, "no_pages": length, "pages": page_list}
     score_col.insert_one(doc_body)
 
-
+# method to upload files
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -80,15 +88,15 @@ def upload_file():
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
+        # if file is allowed, add the file to the its given path
         if file and allowed_file(file.filename):
             filename = secure_filename(composition_name+".pdf")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             # composer_col.insert_one({"composer_name": composer_name})
-            print("calling add composition")
             add_composition(composer_name, composition_name, instrument)
     return render_template('index.html')
 
-
+# method which loads the mei page
 @app.route('/mei_page.html')
 def load_mei_page():
     if db.pages.count() != 0:
@@ -106,7 +114,7 @@ def load_mei_page():
             file.writelines(data)
     return render_template('mei_page.html')
 
-
+# method to store the mei changes
 @app.route('/store', methods=['GET', 'POST'])
 def store_mei_changes():
     print("store_mei_changes")
@@ -114,5 +122,6 @@ def store_mei_changes():
     return 'hello'
 
 
+# main method to run the application
 if __name__ == '__main__':
     app.run()
