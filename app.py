@@ -11,11 +11,9 @@ from shutil import copyfile
 connection = MongoClient()
 db = connection.crowd_mei
 
-composer_col = db["composers"]
 composition_col = db["compositions"]
-modality_col = db["modalities"]
-file_col = db["files"]
-page_col = db["pages"]
+score_col = db["scores"]
+
 
 app = Flask(__name__, static_url_path='', static_folder='static')
 app.secret_key = "secret key"
@@ -27,6 +25,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -42,20 +41,18 @@ def add_composition(composer_name, composition_name, instrument):
         os.makedirs(path + "/png")
         os.makedirs(path + "/mei")
 
-    composition_col.insert_one({"composition_name": composition_name, "composer_name": composer_name, "instrument": instrument, "file_path": "data/pdf"})
-    # Ludwig_van_Beethoven/Andante_F_Major/piano/pdf/30912749289/page1.pdf
+    composition_col.insert_one({"composition_name": composition_name, "composer_name": composer_name, "instrument": instrument})
     add_page(composition_name+".pdf", path)
+
 
 def add_page(filename, path):
     file_path = "static/data/pdf/"+filename
     empty_path = "static/data/mei/empty.mei"
     pages = convert_from_path(file_path, 500)
     length = len(pages)
-    file_col.insert_one(
-        {"file_path": file_path,
-         "no_pages": length})
-    fileid = db.files.find({"file_path": file_path}).next()["_id"]
+    # db.scores.find({"file_path": file_path}).next()["_id"]
     count = 1
+    page_list = []
     for page in pages:
         pdf_path = path + "/pdf/page" + str(count) + ".pdf"
         jpg_path = path + "/jpg/page" + str(count) + ".jpg"
@@ -64,10 +61,10 @@ def add_page(filename, path):
         copyfile(empty_path, mei_path)
         page.save(pdf_path)
         page.save(jpg_path, 'JPEG')
-        page_col.insert_one(
-            {"file_id": fileid, "page_id": count, "pdf_path": pdf_path, "png_path": png_path,
-             "jpg_path": jpg_path, "mei_path": mei_path, "is_checked": False})
+        page_list.append({"pdf_path": pdf_path, "png_path": png_path,"jpg_path": jpg_path, "mei_path": mei_path, "is_checked": False})
         count += 1
+    doc_body = {"user_added": "", "file_path": file_path, "no_pages": length, "pages": pagelist}
+    score_col.insert_one(doc_body)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -86,7 +83,7 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(composition_name+".pdf")
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            composer_col.insert_one({"composer_name": composer_name})
+            # composer_col.insert_one({"composer_name": composer_name})
             print("calling add composition")
             add_composition(composer_name, composition_name, instrument)
     return render_template('index.html')
@@ -115,6 +112,7 @@ def store_mei_changes():
     print("store_mei_changes")
     print(request.get_data().decode('utf-8'))
     return 'hello'
+
 
 if __name__ == '__main__':
     app.run()
