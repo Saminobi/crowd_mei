@@ -8,7 +8,6 @@ from pathlib import Path
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename, redirect
 from shutil import copyfile
-from pprint import pprint
 
 # connect to the database "crowd_mei"
 connection = MongoClient()
@@ -31,6 +30,14 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
 current_mei_path = ""
+
+
+@app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate, public, max-age=0"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
 
 # method to find the allowed files
 # JH: If your method performs a True/False check, it is a good habit to name it with an is_
@@ -117,7 +124,7 @@ def add_score(score_pdf_filename, target_path):
     if not os.path.isfile(file_path):
         raise OSError("Source pdf file {} does not exist!", file_path)
 
-    mei_empty_template_path = "static/data/mei/empty.mei"   # JH: Again -- clearer naming.
+    mei_empty_template_path = "static/data/mei/test.mei"   # JH: Again -- clearer naming.
 
     pages = convert_from_path(file_path, 500)
     page_count = len(pages)  # JH: clearer naming. You'll get the hang of this easily.
@@ -190,7 +197,7 @@ def upload_score():
 def load_mei_page():
     """Renders the Verovio editor view for some page.
     """
-    if db.pages.count() != 0:
+    if db.scores.count() != 0:
         # JH: Heads up: this will need to be refactored into a separate choose_page() function.
         global current_mei_path
         record = ""
@@ -203,12 +210,17 @@ def load_mei_page():
         with open('templates/mei_page.html', 'r') as file:
             data = file.readlines()
 
+        with open('static/js/verovio.js', 'r') as other:
+            data_verovio = other.readlines()
+
         new_record = record[6:]
         # TODO: JH: ???? This is definitely bad practice, especially without a comment.
         # TODO: JH: I have no idea what it means and it's pretty sure to cause a bug
         # TODO: JH: as soon as path conventions change, and they *always* change at some point.
 
         data[10] = "<img src=\"" + new_record + "\">\n"
+        print("fetch('" + str(current_mei_path[6:]) + "')\n")
+        data_verovio[13] = "fetch('" + str(current_mei_path[6:]) + "')\n"
         # TODO: JH: Same here. No magic numbers, please! You can do:
         # TODO: JH:      IMAGE_URL_FIELD_INDEX = 10
         # TODO: JH:      data[IMAGE_URL_FIELD_INDEX] = "<img src... >\n"
@@ -224,17 +236,21 @@ def load_mei_page():
         with open('templates/mei_page.html', 'w') as file:
             file.writelines(data)
 
+        with open('static/js/verovio.js', 'w') as file_other:
+            file_other.writelines(data_verovio)
+
     return render_template('mei_page.html')
 
 
 # method to store the mei changes
 @app.route('/store', methods=['GET', 'POST'])
 def store_mei_changes():
-    changed_mei = request.get_data().decode('utf-8')
     file = current_mei_path
     # file = current_page_path
     wr = open(file, 'w')
     wr.write(request.get_data().decode('utf-8'))
+    load_mei_page();
+    return render_template('mei_page.html')
 
 
 # main method to run the application

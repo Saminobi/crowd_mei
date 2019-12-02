@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mei
+    xmlns="http://www.music-encoding.org/ns/mei">
+    <meiHead>
+        <fileDesc>
+            <titleStmt>
+                <title/>
+            </titleStmt>
+            <pubStmt/>
+        </fileDesc>
+        <encodingDesc>
+            <appInfo>
+                <application isodate="2019-09-11T10:14:41.180Z" version="1.0.1">
+                    <name>Deep Optical Measure Detector</name>
+                    <p>Measures detected with Deep Optical Measure Detector</p>
+                </application>
+            </appInfo>
+        </encodingDesc>
+    </meiHead>
+    <music>
+        <body>
+            <mdiv xml:id="mdiv_01DMFX2TRWW2361JPM5FE03J04" n="1" label="">
+                <score>
+                    <scoreDef/>
+                    <section>
+                        <pb/>
+                        <measure xml:id="measure_01DMFX2TS17QBY3W8W4CEW04QG" n="1" label="1" facs="#zone_01DMFX2TS1ATT3RAMKGAJQKANE"/>
+                        <measure xml:id="measure_01DMFX2TS3BJ2Z15RBMR9WRHFD" n="2" label="2" facs="#zone_01DMFX2TS16TRKZ6Y2MN4B0GYZ"/>
+                        <measure xml:id="measure_01DMFX2TS4JR06YDM5DX6JN22P" n="3" label="3" facs="#zone_01DMFX2TS474FPG4GMB2AB08ZP"/>
+                        <measure xml:id="measure_01DMFX2TS4S6QZE1F1V8PSM52P" n="4" label="4" facs="#zone_01DMFX2TS4GTH6PRGTZ1KPSATM"/>
+                        <measure xml:id="measure_01DMFX2TS5MX3ZERBQCQ3CCT81" n="5" label="5" facs="#zone_01DMFX2TS5ZQWP2S0ZZBDGGRH6"/>
+                        <measure xml:id="measure_01DMFX2TS55J1JGY3SCYCAQG2X" n="6" label="6" facs="#zone_01DMFX2TS52SMHH5T1RF3NJRPB"/>
+                        <sb/>
+                        <measure xml:id="measure_01DMFX2TS6FEZ2FTK0Z0E7M2FY" n="7" label="7" facs="#zone_01DMFX2TS5TJ4P791NTYRMRF1C"/>
+                        <measure xml:id="measure_01DMFX2TS6DZNPK0JVV63GAPKW" n="8" label="8" facs="#zone_01DMFX2TS60AMJKRR5QCCSR5VV"/>
+                        <measure xml:id="measure_01DMFX2TS65Y0KR0AZFD2FGNVR" n="9" label="9" facs="#zone_01DMFX2TS666NV9JMC1YMN9Q5E"/>
+                        <measure xml:id="measure_01DMFX2TS6S41AB1TXQ4WX4C12" n="10" label="10" facs="#zone_01DMFX2TS6HADRKVBD8YV4WG5A"/>
+                        <measure xml:id="measure_01DMFX2TS7M1XCNTK94Y18D2T4" n="11" label="11" facs="#zone_01DMFX2TS7SXEW33HS8Z6XDBCE"/>
+                        <measure xml:id="measure_01DMFX2TS7Y4F03NNYQP7CMR3X" n="12" label="12" facs="#zone_01DMFX2TS7N405C6W7VCKECVJA"/>
+                        <sb/>
+                        <measure xml:id="measure_01DMFX2TS7RECVZQ6TVS5A6EAS" n="13" label="13" facs="#zone_01DMFX2TS7KTM5XEWAJ5C99VA7"/>
+                        <measure xml:id="measure_01DMFX2TS728CT9B29T74108XE" n="14" label="14" facs="#zone_01DMFX2TS7C84SKBGPZAZ0173M"/>
+                        <measure xml:id="measure_01DMFX2TS88WZVFR8QRTT99DR0" n="15" label="15" facs="#zone_01DMFX2TS789DKQ7ZHKKAQMK2W"/>
+                        <measure xml:id="measure_01DMFX2TS8ZSNEW36WMJ7G25DA" n="16" label="16" facs="#zone_01DMFX2TS84BKAHNY6DQ2B1CSN"/>
+                        <sb/>
+                        <measure xml:id="measure_01DMFX2TS8VNH3NSZBZ5Y7A84Q" n="17" label="17" facs="#zone_01DMFX2TS8A62DCYAB7MZRS87C"/>
+                        <measure xml:id="measure_01DMFX2TS8JZ25Q888W4QBMM1D" n="18" label="18" facs="#zone_01DMFX2TS88B205Z5Y213R903R"/>
+                        <measure xml:id="measure_01DMFX2TS8GGNBNMBJZQFSM6BJ" n="19" label="19" facs="#zone_01DMFX2TS8QW2M88KVT3WSP0YT"/>
+                        <measure xml:id="measure_01DMFX2TS82AARCSJRQAREND0B" n="20" label="20" facs="#zone_01DMFX2TS8XW9DAWDFVNNCED3A"/>
+                        <measure xml:id="measure_01DMFX2TS9NN6JPS3K070CQ873" n="21" label="21" facs="#zone_01DMFX2TS83ACE8T6W5WMP8ZK6"/>
+                        <measure xml:id="measure_01DMFX2TS9J55HC74QBNNVV3BB" n="22" label="22" facs="#zone_01DMFX2TS95D0Q1M89CT6SRH1T"/>
+                        <sb/>
+                        <measure xml:id="measure_01DMFX2TS9NKYE0F4RC0A24BQ6" n="23" label="23" facs="#zone_01DMFX2TS9N7SFGC4QC30KWGXY"/>
+                        <measure xml:id="measure_01DMFX2TS9CVZHCW6MR6MA6X8A" n="24" label="24" facs="#zone_01DMFX2TS9K1J69GB6KRNHV0F3"/>
+                        <measure xml:id="measure_01DMFX2TS9K9FNR7CQ2BEZEBXY" n="25" label="25" facs="#zone_01DMFX2TS9ZW9E0C7QH4FXZRKJ"/>
+                        <measure xml:id="measure_01DMFX2TS92A5C1W7Q6BRB5TG6" n="26" label="26" facs="#zone_01DMFX2TS933K520CA39J7HFGA"/>
+                        <measure xml:id="measure_01DMFX2TS986MW9RCFJ72G9WZM" n="27" label="27" facs="#zone_01DMFX2TS9V3GW8BHHZH1638SQ"/>
+                        <sb/>
+                        <pb/>
+                    </section>
+                </score>
+            </mdiv>
+        </body>
+    </music>
+</mei>

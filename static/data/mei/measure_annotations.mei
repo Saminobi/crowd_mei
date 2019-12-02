@@ -1,94 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mei
-    xmlns="http://www.music-encoding.org/ns/mei">
-    <meiHead>
-        <fileDesc>
-            <titleStmt>
-                <title/>
-            </titleStmt>
-            <pubStmt/>
-        </fileDesc>
-        <encodingDesc>
-            <appInfo>
-                <application isodate="2019-09-11T10:14:41.180Z" version="1.0.1">
-                    <name>Deep Optical Measure Detector</name>
-                    <p>Measures detected with Deep Optical Measure Detector</p>
-                </application>
-            </appInfo>
-        </encodingDesc>
-    </meiHead>
+<?xml-model href="http://music-encoding.org/schema/4.0.0/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://music-encoding.org/schema/4.0.0/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="4.0.0">
     <music>
-        <facsimile>
-            <surface xml:id="surface_01DMFX2TRZ7P37F7VNRY5K9B5F" n="1" ulx="0" uly="0" lrx="2938" lry="3629">
-                <graphic xml:id="graphic_01DMFX2TS15GA1PRRSKS0DHFPS" target="IMSLP109835-PMLP30951-sibley.1802.1525.beethoven.andante.fmajor.jpg" width="2939" height="3630"/>
-                <zone xml:id="zone_01DMFX2TS1ATT3RAMKGAJQKANE" type="measure" ulx="568" uly="501" lrx="1042" lry="1083"/>
-                <zone xml:id="zone_01DMFX2TS16TRKZ6Y2MN4B0GYZ" type="measure" ulx="981" uly="494" lrx="1340" lry="1077"/>
-                <zone xml:id="zone_01DMFX2TS474FPG4GMB2AB08ZP" type="measure" ulx="1264" uly="498" lrx="1683" lry="1091"/>
-                <zone xml:id="zone_01DMFX2TS4GTH6PRGTZ1KPSATM" type="measure" ulx="1619" uly="489" lrx="2083" lry="1094"/>
-                <zone xml:id="zone_01DMFX2TS5ZQWP2S0ZZBDGGRH6" type="measure" ulx="2019" uly="480" lrx="2433" lry="1082"/>
-                <zone xml:id="zone_01DMFX2TS52SMHH5T1RF3NJRPB" type="measure" ulx="2376" uly="504" lrx="2756" lry="1089"/>
-                <zone xml:id="zone_01DMFX2TS5TJ4P791NTYRMRF1C" type="measure" ulx="372" uly="1090" lrx="952" lry="1660"/>
-                <zone xml:id="zone_01DMFX2TS60AMJKRR5QCCSR5VV" type="measure" ulx="866" uly="1068" lrx="1237" lry="1671"/>
-                <zone xml:id="zone_01DMFX2TS666NV9JMC1YMN9Q5E" type="measure" ulx="1181" uly="1067" lrx="1612" lry="1663"/>
-                <zone xml:id="zone_01DMFX2TS6HADRKVBD8YV4WG5A" type="measure" ulx="1555" uly="1083" lrx="1978" lry="1648"/>
-                <zone xml:id="zone_01DMFX2TS7SXEW33HS8Z6XDBCE" type="measure" ulx="1919" uly="1081" lrx="2350" lry="1644"/>
-                <zone xml:id="zone_01DMFX2TS7N405C6W7VCKECVJA" type="measure" ulx="2284" uly="1083" lrx="2751" lry="1643"/>
-                <zone xml:id="zone_01DMFX2TS7KTM5XEWAJ5C99VA7" type="measure" ulx="385" uly="1647" lrx="1158" lry="2181"/>
-                <zone xml:id="zone_01DMFX2TS7C84SKBGPZAZ0173M" type="measure" ulx="1107" uly="1638" lrx="1733" lry="2172"/>
-                <zone xml:id="zone_01DMFX2TS789DKQ7ZHKKAQMK2W" type="measure" ulx="1681" uly="1657" lrx="2262" lry="2150"/>
-                <zone xml:id="zone_01DMFX2TS84BKAHNY6DQ2B1CSN" type="measure" ulx="2198" uly="1645" lrx="2760" lry="2153"/>
-                <zone xml:id="zone_01DMFX2TS8A62DCYAB7MZRS87C" type="measure" ulx="378" uly="2170" lrx="1003" lry="2796"/>
-                <zone xml:id="zone_01DMFX2TS88B205Z5Y213R903R" type="measure" ulx="927" uly="2177" lrx="1293" lry="2777"/>
-                <zone xml:id="zone_01DMFX2TS8QW2M88KVT3WSP0YT" type="measure" ulx="1237" uly="2177" lrx="1700" lry="2770"/>
-                <zone xml:id="zone_01DMFX2TS8XW9DAWDFVNNCED3A" type="measure" ulx="1631" uly="2177" lrx="2024" lry="2784"/>
-                <zone xml:id="zone_01DMFX2TS83ACE8T6W5WMP8ZK6" type="measure" ulx="1957" uly="2191" lrx="2416" lry="2786"/>
-                <zone xml:id="zone_01DMFX2TS95D0Q1M89CT6SRH1T" type="measure" ulx="2339" uly="2160" lrx="2759" lry="2806"/>
-                <zone xml:id="zone_01DMFX2TS9N7SFGC4QC30KWGXY" type="measure" ulx="383" uly="2781" lrx="1032" lry="3388"/>
-                <zone xml:id="zone_01DMFX2TS9K1J69GB6KRNHV0F3" type="measure" ulx="964" uly="2789" lrx="1414" lry="3378"/>
-                <zone xml:id="zone_01DMFX2TS9ZW9E0C7QH4FXZRKJ" type="measure" ulx="1343" uly="2793" lrx="1792" lry="3383"/>
-                <zone xml:id="zone_01DMFX2TS933K520CA39J7HFGA" type="measure" ulx="1730" uly="2779" lrx="2253" lry="3380"/>
-                <zone xml:id="zone_01DMFX2TS9V3GW8BHHZH1638SQ" type="measure" ulx="2191" uly="2763" lrx="2763" lry="3385"/>
-            </surface>
-        </facsimile>
         <body>
-            <mdiv xml:id="mdiv_01DMFX2TRWW2361JPM5FE03J04" n="1" label="">
-                <score>
-                    <scoreDef/>
-                    <section>
-                        <pb/>
-                        <measure xml:id="measure_01DMFX2TS17QBY3W8W4CEW04QG" n="1" label="1" facs="#zone_01DMFX2TS1ATT3RAMKGAJQKANE"/>
-                        <measure xml:id="measure_01DMFX2TS3BJ2Z15RBMR9WRHFD" n="2" label="2" facs="#zone_01DMFX2TS16TRKZ6Y2MN4B0GYZ"/>
-                        <measure xml:id="measure_01DMFX2TS4JR06YDM5DX6JN22P" n="3" label="3" facs="#zone_01DMFX2TS474FPG4GMB2AB08ZP"/>
-                        <measure xml:id="measure_01DMFX2TS4S6QZE1F1V8PSM52P" n="4" label="4" facs="#zone_01DMFX2TS4GTH6PRGTZ1KPSATM"/>
-                        <measure xml:id="measure_01DMFX2TS5MX3ZERBQCQ3CCT81" n="5" label="5" facs="#zone_01DMFX2TS5ZQWP2S0ZZBDGGRH6"/>
-                        <measure xml:id="measure_01DMFX2TS55J1JGY3SCYCAQG2X" n="6" label="6" facs="#zone_01DMFX2TS52SMHH5T1RF3NJRPB"/>
-                        <sb/>
-                        <measure xml:id="measure_01DMFX2TS6FEZ2FTK0Z0E7M2FY" n="7" label="7" facs="#zone_01DMFX2TS5TJ4P791NTYRMRF1C"/>
-                        <measure xml:id="measure_01DMFX2TS6DZNPK0JVV63GAPKW" n="8" label="8" facs="#zone_01DMFX2TS60AMJKRR5QCCSR5VV"/>
-                        <measure xml:id="measure_01DMFX2TS65Y0KR0AZFD2FGNVR" n="9" label="9" facs="#zone_01DMFX2TS666NV9JMC1YMN9Q5E"/>
-                        <measure xml:id="measure_01DMFX2TS6S41AB1TXQ4WX4C12" n="10" label="10" facs="#zone_01DMFX2TS6HADRKVBD8YV4WG5A"/>
-                        <measure xml:id="measure_01DMFX2TS7M1XCNTK94Y18D2T4" n="11" label="11" facs="#zone_01DMFX2TS7SXEW33HS8Z6XDBCE"/>
-                        <measure xml:id="measure_01DMFX2TS7Y4F03NNYQP7CMR3X" n="12" label="12" facs="#zone_01DMFX2TS7N405C6W7VCKECVJA"/>
-                        <sb/>
-                        <measure xml:id="measure_01DMFX2TS7RECVZQ6TVS5A6EAS" n="13" label="13" facs="#zone_01DMFX2TS7KTM5XEWAJ5C99VA7"/>
-                        <measure xml:id="measure_01DMFX2TS728CT9B29T74108XE" n="14" label="14" facs="#zone_01DMFX2TS7C84SKBGPZAZ0173M"/>
-                        <measure xml:id="measure_01DMFX2TS88WZVFR8QRTT99DR0" n="15" label="15" facs="#zone_01DMFX2TS789DKQ7ZHKKAQMK2W"/>
-                        <measure xml:id="measure_01DMFX2TS8ZSNEW36WMJ7G25DA" n="16" label="16" facs="#zone_01DMFX2TS84BKAHNY6DQ2B1CSN"/>
-                        <sb/>
-                        <measure xml:id="measure_01DMFX2TS8VNH3NSZBZ5Y7A84Q" n="17" label="17" facs="#zone_01DMFX2TS8A62DCYAB7MZRS87C"/>
-                        <measure xml:id="measure_01DMFX2TS8JZ25Q888W4QBMM1D" n="18" label="18" facs="#zone_01DMFX2TS88B205Z5Y213R903R"/>
-                        <measure xml:id="measure_01DMFX2TS8GGNBNMBJZQFSM6BJ" n="19" label="19" facs="#zone_01DMFX2TS8QW2M88KVT3WSP0YT"/>
-                        <measure xml:id="measure_01DMFX2TS82AARCSJRQAREND0B" n="20" label="20" facs="#zone_01DMFX2TS8XW9DAWDFVNNCED3A"/>
-                        <measure xml:id="measure_01DMFX2TS9NN6JPS3K070CQ873" n="21" label="21" facs="#zone_01DMFX2TS83ACE8T6W5WMP8ZK6"/>
-                        <measure xml:id="measure_01DMFX2TS9J55HC74QBNNVV3BB" n="22" label="22" facs="#zone_01DMFX2TS95D0Q1M89CT6SRH1T"/>
-                        <sb/>
-                        <measure xml:id="measure_01DMFX2TS9NKYE0F4RC0A24BQ6" n="23" label="23" facs="#zone_01DMFX2TS9N7SFGC4QC30KWGXY"/>
-                        <measure xml:id="measure_01DMFX2TS9CVZHCW6MR6MA6X8A" n="24" label="24" facs="#zone_01DMFX2TS9K1J69GB6KRNHV0F3"/>
-                        <measure xml:id="measure_01DMFX2TS9K9FNR7CQ2BEZEBXY" n="25" label="25" facs="#zone_01DMFX2TS9ZW9E0C7QH4FXZRKJ"/>
-                        <measure xml:id="measure_01DMFX2TS92A5C1W7Q6BRB5TG6" n="26" label="26" facs="#zone_01DMFX2TS933K520CA39J7HFGA"/>
-                        <measure xml:id="measure_01DMFX2TS986MW9RCFJ72G9WZM" n="27" label="27" facs="#zone_01DMFX2TS9V3GW8BHHZH1638SQ"/>
-                        <sb/>
-                        <pb/>
+            <mdiv xml:id="mdiv-0000000872338379">
+                <score xml:id="score-0000000405953826">
+                    <scoreDef xml:id="scoredef-0000000687974839" midi.bpm="40">
+                        <staffGrp xml:id="staffgrp-0000000622005332" symbol="brace" bar.thru="true">
+                            <label xml:id="label-0000000207460379" />
+                            <staffDef xml:id="staffdef-0000000160586939" clef.shape="G" clef.line="2" key.sig="1f" meter.count="3" meter.unit="4" n="1" lines="5">
+                                <instrDef xml:id="instrdef-0000001277377516" midi.instrnum="1" midi.instrname="Acoustic_Grand_Piano" />
+                            </staffDef>
+                            <staffDef xml:id="staffdef-0000001609231621" clef.shape="F" clef.line="4" key.sig="1f" meter.count="3" meter.unit="4" n="2" lines="5">
+                                <instrDef xml:id="instrdef-0000001946045226" midi.instrnum="1" midi.instrname="Acoustic_Grand_Piano" />
+                            </staffDef>
+                        </staffGrp>
+                        <pgHead xml:id="pghead-0000001569440862">
+                            <rend xml:id="rend-0000000108511803" halign="center" valign="middle">
+                                <rend xml:id="rend-0000001680712559" fontsize="x-large">Piano Sonata no. 1 in F minor</rend>
+                                <lb xml:id="lb-0000002064287339" /> 
+<lb xml:id="lb-0000000452101765" /> </rend>
+                            <rend xml:id="rend-0000000789145909" halign="right" valign="bottom" fontsize="small">Ludwig van Beethoven</rend>
+                            <rend xml:id="rend-0000000391803167" halign="right" valign="bottom" fontsize="small">1770–1827</rend>
+                        </pgHead>
+                    </scoreDef>
+                    <section xml:id="section-L8F1">
+                        <measure xml:id="measure-L8" n="0">
+                            <staff xml:id="staff-0000000364028594" n="1">
+                                <layer xml:id="layer-L8F2N1" n="1">
+                                    <beam xml:id="beam-L16F2-L17F2">
+                                        <note xml:id="note-L16F2" dots="1" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L17F2" dur="16" oct="4" pname="c" stem.dir="up" accid.ges="n" />
+                                    </beam>
+                                </layer>
+                            </staff>
+                            <staff xml:id="staff-0000000308155765" n="2">
+                                <layer xml:id="layer-L8F1N1" n="1">
+                                    <rest xml:id="rest-L16F1" dur="4" />
+                                </layer>
+                            </staff>
+                            <tempo xml:id="tempo-L4F1" staff="1" tstamp="1.000000">Adagio</tempo>
+                            <dir xml:id="dir-L16F2" staff="1" tstamp="1.000000">
+                                <rend xml:id="rend-0000000973219794" fontstyle="normal">dolce</rend>
+                            </dir>
+                        </measure>
+                        <measure xml:id="measure-L18" n="1">
+                            <staff xml:id="staff-L18F2N1" n="1">
+                                <layer xml:id="layer-L18F2N1" n="1">
+                                    <note xml:id="note-L20F3" dur="4" oct="4" pname="a" stem.dir="up" accid.ges="n" />
+                                    <note xml:id="note-L21F3" dur="4" oct="5" pname="c" grace="unacc" stem.dir="up" stem.len="0.000000" accid.ges="n" />
+                                    <beam xml:id="beam-L22F3-L25F3">
+                                        <note xml:id="note-L22F3" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
+                                        <note xml:id="note-L23F3" dur="8" oct="4" pname="a" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L24F3" dur="8" oct="4" pname="g" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L25F3" dur="8" oct="4" pname="f" stem.dir="up" accid.ges="n" />
+                                    </beam>
+                                </layer>
+                            </staff>
+                            <staff xml:id="staff-L18F1N1" n="2">
+                                <layer xml:id="layer-L18F1N1" n="1">
+                                    <note xml:id="note-L20F1" dur="4" oct="4" pname="c" stem.dir="up" accid.ges="n" />
+                                    <beam xml:id="beam-L22F1-L25F1">
+                                        <note xml:id="note-L22F1" dur="8" oct="4" pname="d" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L23F1" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L24F1" dur="8" oct="3" pname="b" stem.dir="up" accid.ges="f" />
+                                        <note xml:id="note-L25F1" dur="8" oct="3" pname="a" stem.dir="up" accid.ges="n" />
+                                    </beam>
+                                </layer>
+                                <layer xml:id="layer-L20F2N2" n="2">
+                                    <note xml:id="note-L20F2" dur="2" oct="3" pname="f" stem.dir="down" stem.len="5.500000" accid.ges="n" />
+                                    <note xml:id="note-L24F2" dur="4" oct="3" pname="f" stem.dir="down" stem.len="5.500000" accid.ges="n" />
+                                </layer>
+                            </staff>
+                            <dynam xml:id="dynam-L20F4" staff="1" tstamp="1.000000" vgrp="100">p</dynam>
+                            <turn xml:id="turn-L20F3" staff="1" tstamp="1.500000" form="lower" />
+                            <slur xml:id="slur-L21F3-L22F3" staff="1" startid="#note-L21F3" endid="#note-L22F3" />
+                            <slur xml:id="slur-L20F3-L25F3" staff="1" startid="#note-L20F3" endid="#note-L25F3" />
+                            <slur xml:id="slur-L20F1-L25F1" staff="2" startid="#note-L20F1" endid="#note-L25F1" />
+                        </measure>
+                        <measure xml:id="measure-L26" n="2">
+                            <staff xml:id="staff-L26F3N1" n="1">
+                                <layer xml:id="layer-L26F3N1" n="1">
+                                    <note xml:id="note-L27F3" dur="4" oct="4" pname="f" stem.dir="up" accid.ges="n" />
+                                    <note xml:id="note-L28F3" dur="8" oct="4" pname="e" stem.dir="up" accid.ges="n" />
+                                    <beam xml:id="beam-L30F2-L32F2">
+                                        <note xml:id="note-L30F2" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="n" />
+                                        <chord xml:id="chord-L31F2" dur="8" stem.dir="up">
+                                            <note xml:id="note-L31F2S1" oct="3" pname="b" accid="n" />
+                                            <note xml:id="note-L31F2S2" oct="4" pname="d" accid.ges="n" />
+                                        </chord>
+                                        <chord xml:id="chord-L32F2" dur="8" stem.dir="up">
+                                            <note xml:id="note-L32F2S1" oct="3" pname="b" accid="f" />
+                                            <note xml:id="note-L32F2S2" oct="4" pname="e" accid.ges="n" />
+                                        </chord>
+                                    </beam>
+                                </layer>
+                            </staff>
+                            <staff xml:id="staff-L26F1N1" n="2">
+                                <layer xml:id="layer-L26F1N1" n="1">
+                                    <note xml:id="note-L27F1" dur="4" oct="3" pname="a" stem.dir="up" accid.ges="n" />
+                                    <note xml:id="note-L28F1" dur="8" oct="3" pname="g" stem.dir="up" accid.ges="n" />
+                                    <rest xml:id="rest-L30F1" dur="8" />
+                                    <rest xml:id="rest-L31F1" dur="4" />
+                                </layer>
+                                <layer xml:id="layer-L26F2N2" n="2">
+                                    <note xml:id="note-L27F2" dots="1" dur="4" oct="3" pname="c" stem.dir="down" stem.len="5.500000" accid.ges="n" />
+                                    <space xml:id="space-0000000223616002" dots="1" dur="4" />
+                                </layer>
+                            </staff>
+                            <slur xml:id="slur-L27F3-L28F3" staff="1" startid="#note-L27F3" endid="#note-L28F3" />
+                            <slur xml:id="slur-L30F2-L32F2" staff="1" startid="#note-L30F2" endid="#chord-L32F2" />
+                            <slur xml:id="slur-L27F1-L28F1" staff="2" startid="#note-L27F1" endid="#note-L28F1" />
+                        </measure>
+                        <measure xml:id="measure-L33" n="3">
+                            <staff xml:id="staff-L33F2N1" n="1">
+                                <layer xml:id="layer-L33F2N1" n="1">
+                                    <beam xml:id="beam-L34F2-L35F2">
+                                        <note xml:id="note-L34F2" dur="8" oct="4" pname="f" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L35F2" dur="16" oct="5" pname="c" stem.dir="up" accid.ges="n" />
+                                    </beam>
+                                    <rest xml:id="rest-L36F2" dur="16" />
+                                    <beam xml:id="beam-L38F2-L39F2">
+                                        <note xml:id="note-L38F2" dur="8" oct="5" pname="c" stem.dir="up" accid.ges="n" />
+                                        <note xml:id="note-L39F2" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
+                                    </beam>
+                                    <rest xml:id="rest-L40F2" dur="16" ploc="b" oloc="4" />
+                                    <beam xml:id="beam-L41F2-L42F2">
+                                        <note xml:id="note-L41F2" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
+                                        <note xml:id="note-L42F2" dur="16" oct="4" pname="a" stem.dir="up" accid.ges="n" />
+                                    </beam>
+                                    <rest xml:id="rest-L43F2" dur="16" ploc="b" oloc="4" />
+                                </layer>
+                                <layer xml:id="layer-L38F3N2" n="2">
+                                    <space xml:id="space-0000001703052815" dur="4" />
+                                    <note xml:id="note-L38F3" dur="4" oct="4" pname="g" stem.dir="down" stem.len="6.000000" accid.ges="n" />
+                                    <note xml:id="note-L41F3" dur="4" oct="4" pname="f" stem.dir="down" stem.len="5.500000" accid.ges="n" />
+                                </layer>
+                            </staff>
+                            <staff xml:id="staff-L33F1N1" n="2">
+                                <layer xml:id="layer-L33F1N1" n="1">
+                                    <chord xml:id="chord-L34F1" dur="4" stem.dir="down">
+                                        <note xml:id="note-L34F1S1" oct="3" pname="a" accid.ges="n" />
+                                        <note xml:id="note-L34F1S2" oct="4" pname="c" accid.ges="n" />
+                                    </chord>
+                                    <chord xml:id="chord-L38F1" dur="4" stem.dir="down">
+                                        <note xml:id="note-L38F1S1" oct="3" pname="e" accid.ges="n" />
+                                        <note xml:id="note-L38F1S2" oct="4" pname="c" accid.ges="n" />
+                                    </chord>
+                                    <chord xml:id="chord-L41F1" dur="4" stem.dir="down">
+                                        <note xml:id="note-L41F1S1" oct="3" pname="f" accid.ges="n" />
+                                        <note xml:id="note-L41F1S2" oct="4" pname="c" accid.ges="n" />
+                                    </chord>
+                                </layer>
+                            </staff>
+                            <slur xml:id="slur-L34F2-L35F2" staff="1" startid="#note-L34F2" endid="#note-L35F2" />
+                            <slur xml:id="slur-L38F2-L39F2" staff="1" startid="#note-L38F2" endid="#note-L39F2" />
+                            <slur xml:id="slur-L41F2-L42F2" staff="1" startid="#note-L41F2" endid="#note-L42F2" />
+                        </measure>
                     </section>
                 </score>
             </mdiv>

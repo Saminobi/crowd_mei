@@ -11,13 +11,39 @@ const options = {
 // Create the app - here with an empty option object
 const app = new Verovio.App(document.getElementById("app"), options);
 
-// Load a file (MEI or MusicXML)
-fetch("data/mei/measure_annotations.mei")
+fetch('/data/composers/a/b/c/mei/page1.mei')
 .then(function(response) {
     return response.text();
 })
-.then(function(text) {
-    app.loadData(text);
+.then(function(a) {
+    app.loadData(a);
     $("#saveButton").click(sendMEI.bind({},app))
 })
+
+//var text = readTextFile('/data/composers/pls/ama/ya/mei/page1.mei');
+//alert(text);
+//app.loadData(text);
+//$("#saveButton").click(sendMEI.bind({},app))
+
+//function readTextFile(file)
+//{
+//    var rawFile = new XMLHttpRequest();
+//    rawFile.open("GET", file, false);
+//    rawFile.onreadystatechange = function ()
+//    {
+//        if(rawFile.readyState === 4)
+//        {
+//            if(rawFile.status === 200 || rawFile.status == 0)
+//            {
+//                var allText = rawFile.responseText;
+//                return allText;
+////                  alert(allText);
+//            }
+//        }
+//    }
+//    rawFile.send(null);
+//}
+
+
+
 
