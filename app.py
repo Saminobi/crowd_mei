@@ -1,4 +1,5 @@
 import os
+import random
 
 from pdf2image import convert_from_path
 from flask import Flask, request, render_template, flash
@@ -7,6 +8,7 @@ from pathlib import Path
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename, redirect
 from shutil import copyfile
+from pprint import pprint
 
 # connect to the database "crowd_mei"
 connection = MongoClient()
@@ -28,6 +30,7 @@ app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
 CORS(app)
 
+current_mei_path = ""
 
 # method to find the allowed files
 # JH: If your method performs a True/False check, it is a good habit to name it with an is_
@@ -37,7 +40,6 @@ CORS(app)
 # is_filename_allowed(); this should be reflected in the docstring.
 def is_file_allowed(filename):
     """Method to check whether the given file name suggests the file is acceptable.
-
     :param filename: String with file name.
     :return: True/False
     """
@@ -58,11 +60,8 @@ def is_file_allowed(filename):
 def add_composition(composer_name, composition_name, instrument):
     """Adds composition pages to the filesystem on the server and inserts
     the appropriate records into the database.
-
     Assumes the score PDF is already uploaded. TODO: This is not the best design choice.
-
     The path is ``static/data/composers/COMPOSER_NAME/COMPOSITION_NAME/INSTRUMENT``.
-
     :param composer_name:
     :param composition_name:
     :param instrument:
@@ -102,7 +101,6 @@ def add_score(score_pdf_filename, target_path):
     """Given a PDF file, will split it into pages, convert pages into images,
     save the resulting files including empty MEI, and record this information
     in the scores collection of the database.
-
     :param score_pdf_filename: The name (NOT the path) of the PDF file. Assumed
         to be a file in the ``UPLOAD_FOLDER``.
     :param target_path: The path into which the score media files should be saved.
@@ -194,8 +192,13 @@ def load_mei_page():
     """
     if db.pages.count() != 0:
         # JH: Heads up: this will need to be refactored into a separate choose_page() function.
-        unchecked = db.pages.find({"is_checked": False})
-        record = unchecked.next()["jpg_path"]
+        global current_mei_path
+        record = ""
+        unchecked_list = list(db.scores.find({"pages.is_checked": False}))
+        unchecked = random.choice(unchecked_list)
+        unchecked_page = random.choice(unchecked["pages"])
+        record = unchecked_page["jpg_path"]
+        current_mei_path = unchecked_page["mei_path"]
 
         with open('templates/mei_page.html', 'r') as file:
             data = file.readlines()
@@ -227,9 +230,11 @@ def load_mei_page():
 # method to store the mei changes
 @app.route('/store', methods=['GET', 'POST'])
 def store_mei_changes():
-    print("store_mei_changes")
-    print(request.get_data().decode('utf-8'))
-    return 'hello'
+    changed_mei = request.get_data().decode('utf-8')
+    file = current_mei_path
+    # file = current_page_path
+    wr = open(file, 'w')
+    wr.write(request.get_data().decode('utf-8'))
 
 
 # main method to run the application
