@@ -8,6 +8,7 @@ from pathlib import Path
 from pymongo import MongoClient
 from werkzeug.utils import secure_filename, redirect
 from shutil import copyfile
+from PyPDF2 import PdfFileReader
 
 # connect to the database "crowd_mei"
 connection = MongoClient()
@@ -126,7 +127,21 @@ def add_score(score_pdf_filename, target_path):
 
     mei_empty_template_path = "static/data/mei/test.mei"   # JH: Again -- clearer naming.
 
-    pages = convert_from_path(file_path, 500)
+    # Memory-efficient conversion: page by page.
+    with open(file_path, "rb") as pdfhandle:
+        _inputpdf = PdfFileReader(pdfhandle)
+        n_pages = _inputpdf.numPages
+    pages = []
+    for page_no in range(n_pages):
+        # Reduced DPI to 300 (which is a reasonable standard anyway);
+        # set format to PNG which takes less memory than the default 'ppm' format.
+        current_pages = convert_from_path(file_path, dpi=300,
+                                          first_page=page_no, last_page=page_no,
+                                          fmt='png')
+        pages.extend(current_pages)
+
+    # pages = convert_from_path(file_path, dpi=300)  # JH: 300 dpi is a good scanning standard.
+
     page_count = len(pages)  # JH: clearer naming. You'll get the hang of this easily.
     # db.scores.find({"file_path": file_path}).next()["_id"]
     page_number = 1  # JH: see above. It's straightforward: just call things what they really are & mean.
