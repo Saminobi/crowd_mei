@@ -140,7 +140,7 @@ def add_score(score_pdf_filename, target_path):
                                           fmt='png')
         pages.extend(current_pages)
 
-    # pages = convert_from_path(file_path, dpi=300)  # JH: 300 dpi is a good scanning standard.
+    # pages = convert_from_path(file_path, dpi=300, fmt='png')  # JH: 300 dpi is a good scanning standard.
 
     page_count = len(pages)  # JH: clearer naming. You'll get the hang of this easily.
     # db.scores.find({"file_path": file_path}).next()["_id"]
