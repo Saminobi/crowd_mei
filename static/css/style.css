@@ -5,13 +5,14 @@ img {
 }
 #app {
     height: auto;
-    width: 56%;
+    width: 53%;
     position: absolute;
     top: 0px;
     bottom: 0;
     float: left;
 }
 #button-container {
-    margin-top: 50px;
+margin-right:10px;
+    margin-top: 700px;
     float: right;
 }

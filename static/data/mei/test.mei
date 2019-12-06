@@ -18,38 +18,6 @@
         </encodingDesc>
     </meiHead>
     <music>
-        <facsimile>
-            <surface xml:id="surface_01DMFX2TRZ7P37F7VNRY5K9B5F" n="1" ulx="0" uly="0" lrx="2938" lry="3629">
-                <graphic xml:id="graphic_01DMFX2TS15GA1PRRSKS0DHFPS" target="IMSLP109835-PMLP30951-sibley.1802.1525.beethoven.andante.fmajor.jpg" width="2939" height="3630"/>
-                <zone xml:id="zone_01DMFX2TS1ATT3RAMKGAJQKANE" type="measure" ulx="568" uly="501" lrx="1042" lry="1083"/>
-                <zone xml:id="zone_01DMFX2TS16TRKZ6Y2MN4B0GYZ" type="measure" ulx="981" uly="494" lrx="1340" lry="1077"/>
-                <zone xml:id="zone_01DMFX2TS474FPG4GMB2AB08ZP" type="measure" ulx="1264" uly="498" lrx="1683" lry="1091"/>
-                <zone xml:id="zone_01DMFX2TS4GTH6PRGTZ1KPSATM" type="measure" ulx="1619" uly="489" lrx="2083" lry="1094"/>
-                <zone xml:id="zone_01DMFX2TS5ZQWP2S0ZZBDGGRH6" type="measure" ulx="2019" uly="480" lrx="2433" lry="1082"/>
-                <zone xml:id="zone_01DMFX2TS52SMHH5T1RF3NJRPB" type="measure" ulx="2376" uly="504" lrx="2756" lry="1089"/>
-                <zone xml:id="zone_01DMFX2TS5TJ4P791NTYRMRF1C" type="measure" ulx="372" uly="1090" lrx="952" lry="1660"/>
-                <zone xml:id="zone_01DMFX2TS60AMJKRR5QCCSR5VV" type="measure" ulx="866" uly="1068" lrx="1237" lry="1671"/>
-                <zone xml:id="zone_01DMFX2TS666NV9JMC1YMN9Q5E" type="measure" ulx="1181" uly="1067" lrx="1612" lry="1663"/>
-                <zone xml:id="zone_01DMFX2TS6HADRKVBD8YV4WG5A" type="measure" ulx="1555" uly="1083" lrx="1978" lry="1648"/>
-                <zone xml:id="zone_01DMFX2TS7SXEW33HS8Z6XDBCE" type="measure" ulx="1919" uly="1081" lrx="2350" lry="1644"/>
-                <zone xml:id="zone_01DMFX2TS7N405C6W7VCKECVJA" type="measure" ulx="2284" uly="1083" lrx="2751" lry="1643"/>
-                <zone xml:id="zone_01DMFX2TS7KTM5XEWAJ5C99VA7" type="measure" ulx="385" uly="1647" lrx="1158" lry="2181"/>
-                <zone xml:id="zone_01DMFX2TS7C84SKBGPZAZ0173M" type="measure" ulx="1107" uly="1638" lrx="1733" lry="2172"/>
-                <zone xml:id="zone_01DMFX2TS789DKQ7ZHKKAQMK2W" type="measure" ulx="1681" uly="1657" lrx="2262" lry="2150"/>
-                <zone xml:id="zone_01DMFX2TS84BKAHNY6DQ2B1CSN" type="measure" ulx="2198" uly="1645" lrx="2760" lry="2153"/>
-                <zone xml:id="zone_01DMFX2TS8A62DCYAB7MZRS87C" type="measure" ulx="378" uly="2170" lrx="1003" lry="2796"/>
-                <zone xml:id="zone_01DMFX2TS88B205Z5Y213R903R" type="measure" ulx="927" uly="2177" lrx="1293" lry="2777"/>
-                <zone xml:id="zone_01DMFX2TS8QW2M88KVT3WSP0YT" type="measure" ulx="1237" uly="2177" lrx="1700" lry="2770"/>
-                <zone xml:id="zone_01DMFX2TS8XW9DAWDFVNNCED3A" type="measure" ulx="1631" uly="2177" lrx="2024" lry="2784"/>
-                <zone xml:id="zone_01DMFX2TS83ACE8T6W5WMP8ZK6" type="measure" ulx="1957" uly="2191" lrx="2416" lry="2786"/>
-                <zone xml:id="zone_01DMFX2TS95D0Q1M89CT6SRH1T" type="measure" ulx="2339" uly="2160" lrx="2759" lry="2806"/>
-                <zone xml:id="zone_01DMFX2TS9N7SFGC4QC30KWGXY" type="measure" ulx="383" uly="2781" lrx="1032" lry="3388"/>
-                <zone xml:id="zone_01DMFX2TS9K1J69GB6KRNHV0F3" type="measure" ulx="964" uly="2789" lrx="1414" lry="3378"/>
-                <zone xml:id="zone_01DMFX2TS9ZW9E0C7QH4FXZRKJ" type="measure" ulx="1343" uly="2793" lrx="1792" lry="3383"/>
-                <zone xml:id="zone_01DMFX2TS933K520CA39J7HFGA" type="measure" ulx="1730" uly="2779" lrx="2253" lry="3380"/>
-                <zone xml:id="zone_01DMFX2TS9V3GW8BHHZH1638SQ" type="measure" ulx="2191" uly="2763" lrx="2763" lry="3385"/>
-            </surface>
-        </facsimile>
         <body>
             <mdiv xml:id="mdiv_01DMFX2TRWW2361JPM5FE03J04" n="1" label="">
                 <score>

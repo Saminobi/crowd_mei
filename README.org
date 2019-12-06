@@ -1,12 +1,37 @@
 * MEI Transcriber
 Online MEI Editor to Collaboratively Transcribe PDF music scores
 ** How to run
-1. Run =python3 -m http.server 8000= in the directory of =index.html= file.
-2. Change directory to =server/=.
-3. Run =export FLASK_APP=store_mei.py= and then =python3 -m flask run=.
-4. Access the MEI Transcriber through =127.0.0.1:8000=.
+*Windows*
+1. Change directory to the directory of =app.py= file.
+2. Run =set FLASK_APP=app.py= and then =flask run=.
+3. Access the MEI Transcriber through =127.0.0.1:5000=.
+*Mac*
+1. Change directory to the directory of =app.py= file.
+2. Run =export FLASK_APP=app.py= and then =flask run=.
+3. Access the MEI Transcriber through =127.0.0.1:5000=.
 ** Features
-+ Verovio app loads the MEI file which contains a skeleton with empty measures, corresponding to the image file of the music score to the right.
++ App loads an intro page which has 'Upload file' and 'Get new MEI' options
++ User can upload a new music score using 'Upload file' option
++ When a music score is uploaded, its each page is converted to pdf, png, jpg formats and stored in database
++ User can get a new random music score page using 'Get new MEI option'. When user choose this option, the main application page is loaded.
++ In main application page, verovio app loads the MEI file which contains a skeleton with empty measures, corresponding to a random image file of the music score to the right.
 + 'Save' button sends a request to the server with the latest text in the Verovio text editor area.
+** Dependencies
+*pdf2image*
+
+How to install
+- =pip install pdf2image=
+Windows
+- Windows users will have to install [[http://blog.alivate.com.au/poppler-windows/][poppler for Windows]], then add the bin/ folder to PATH.
+Mac
+- Mac users will have to install [[http://macappstore.org/poppler/][poppler for Mac]].
+*flask-cors*
+
+How to install
+- =pip install -U flask-cors=
+*PyMongo*
+
+How to install
+- =python -m pip install pymongo=
 * License
 Information about the license is found in the file [[file:LICENSE][LICENSE]].

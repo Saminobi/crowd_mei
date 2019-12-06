@@ -1,6 +1,6 @@
 function sendMEI(app) {
   const http = new XMLHttpRequest();
-  const url = 'http://127.0.0.1:5000/';
+  const url = 'http://127.0.0.1:5000/store';
   const xhr = new XMLHttpRequest();
   // var text = $("app").html();
   const text = app.mei
