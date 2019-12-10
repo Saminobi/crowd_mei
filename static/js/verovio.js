@@ -11,7 +11,8 @@ const options = {
 // Create the app - here with an empty option object
 const app = new Verovio.App(document.getElementById("app"), options);
 
-fetch('/data/composers/a/b/c/mei/page1.mei')
+fetch('')   // The directory here should be passed through a variable
+            // Example directory -> ../data/composers/beethoven/adante_f/piano/mei/page1.mei
 .then(function(response) {
     return response.text();
 })

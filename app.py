@@ -40,6 +40,7 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+
 # method to find the allowed files
 # JH: If your method performs a True/False check, it is a good habit to name it with an is_
 # prefix.
@@ -123,7 +124,7 @@ def add_score(score_pdf_filename, target_path):
     #
     # JH: It's good practice to check file existence assumptions.
     if not os.path.isfile(file_path):
-        raise OSError("Source pdf file {} does not exist!", file_path)
+        raise OSError("Source pdf file {} does not exist!".format(file_path))
 
     mei_empty_template_path = "static/data/mei/test.mei"   # JH: Again -- clearer naming.
 
@@ -189,7 +190,13 @@ def upload_score():
 
         # if file is allowed, add the file to the its given path
         if file and is_file_allowed(file.filename):
-            filename = secure_filename(composition_name + ".pdf")  # JH: Well done on the filename sanitization.
+            # composer_name = secure_filename(composer_name)
+            # composition_name = secure_filename(composition_name)
+            # instrument = secure_filename(instrument)
+            # TODO: All the names should pass by the secure_filename and use only these names from now on^
+
+            filename = secure_filename(composition_name + ".pdf")
+            # JH: Well done on the filename sanitization.
             # TODO: JH: Bug alert! You save the uploaded PDF with a sanitized filename, but in add_composition,
             # TODO: JH: it is not sanitized.
             # TODO: JH: This bug is also a symptom of a suboptimal design decision: the path to the score
@@ -264,7 +271,7 @@ def store_mei_changes():
     # file = current_page_path
     wr = open(file, 'w')
     wr.write(request.get_data().decode('utf-8'))
-    load_mei_page();
+    load_mei_page()
     return render_template('mei_page.html')
 
 
